@@ -1,0 +1,4 @@
+edition = "2024"
+reorder_imports = true
+tab_spaces = 4
+hard_tabs = true
