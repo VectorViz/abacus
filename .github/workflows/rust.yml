@@ -26,7 +26,7 @@ jobs:
 
     - name: Configure NPM for Github Packages
       run: |
-        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+        echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
         echo "@vectorviz:registry=https://npm.pkg.github.com" >> ~/.npmrc
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
