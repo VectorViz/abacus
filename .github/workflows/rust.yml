@@ -32,5 +32,5 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish to Github Packages
-      run: npm publish --access public
+      run: npm publish --access=public
       working-directory: pkg
