@@ -15,8 +15,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build
-      run: cargo build --verbose
-    - name: Run tests
-      run: cargo test --verbose
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Install wasm-pack
+      run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+    - name: Build WASM
+      run: wasm-pack build --target web --scope vectorviz
+
+    - name: Configure NPM for Github Packages
+      run: |
+        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+        echo "@vectorviz:registry=https://npm.pkg.github.com" >> ~/.npmrc
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Publish to Github Packages
+      run: npm publish --access public
+      working-directory: pkg

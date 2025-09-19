@@ -1,4 +1,6 @@
 # abacus
+[![Rust Lib](https://github.com/VectorViz/abacus/actions/workflows/rust.yml/badge.svg)](https://github.com/VectorViz/abacus/actions/workflows/rust.yml)
+
 Rust number crunching engine.
 
 > [!IMPORTANT]

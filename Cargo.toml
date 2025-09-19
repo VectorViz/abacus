@@ -1,6 +1,10 @@
 [package]
 name = "abacus"
 version = "0.1.0"
+authors = ["Nathan Brown <me@nathanbrown.dev>", "Francisco Gonzalez"]
+description = "Vector Viz number crunching engine"
+license = "MIT"
+repository = "https://github.com/VectorViz/abacus"
 edition = "2024"
 
 [lib]
